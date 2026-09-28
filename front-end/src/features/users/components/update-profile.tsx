@@ -1,14 +1,14 @@
-import { Pen } from 'lucide-react';
+import { Pen } from "lucide-react";
 
-import { Button } from '@/components/ui/button';
-import { Form, FormDrawer, Input, Textarea } from '@/components/ui/form';
-import { useNotifications } from '@/components/ui/notifications';
-import { useUser } from '@/lib/auth';
+import { Button } from "@/components/ui/button";
+import { Form, FormDrawer, Input, Textarea } from "@/components/ui/form";
+import { useNotifications } from "@/components/ui/notifications";
+import { useUser } from "@/lib/auth";
 
 import {
   updateProfileInputSchema,
   useUpdateProfile,
-} from '../api/update-profile';
+} from "../api/update-profile";
 
 export const UpdateProfile = () => {
   const user = useUser();
@@ -17,8 +17,8 @@ export const UpdateProfile = () => {
     mutationConfig: {
       onSuccess: () => {
         addNotification({
-          type: 'success',
-          title: 'Profile Updated',
+          type: "success",
+          title: "Profile Updated",
         });
       },
     },
@@ -51,10 +51,10 @@ export const UpdateProfile = () => {
         }}
         options={{
           defaultValues: {
-            firstName: user.data?.firstName ?? '',
-            lastName: user.data?.lastName ?? '',
-            email: user.data?.email ?? '',
-            bio: user.data?.bio ?? '',
+            name: user.data?.name ?? "",
+            // lastName: user.data?.lastName ?? "",
+            email: user.data?.email ?? "",
+            // bio: user.data?.bio ?? "",
           },
         }}
         schema={updateProfileInputSchema}
@@ -62,27 +62,27 @@ export const UpdateProfile = () => {
         {({ register, formState }) => (
           <>
             <Input
-              label="First Name"
-              error={formState.errors['firstName']}
-              registration={register('firstName')}
+              label="Name"
+              error={formState.errors["name"]}
+              registration={register("name")}
             />
-            <Input
+            {/* <Input
               label="Last Name"
               error={formState.errors['lastName']}
               registration={register('lastName')}
-            />
+            /> */}
             <Input
               label="Email Address"
               type="email"
-              error={formState.errors['email']}
-              registration={register('email')}
+              error={formState.errors["email"]}
+              registration={register("email")}
             />
 
-            <Textarea
+            {/* <Textarea
               label="Bio"
               error={formState.errors['bio']}
               registration={register('bio')}
-            />
+            /> */}
           </>
         )}
       </Form>

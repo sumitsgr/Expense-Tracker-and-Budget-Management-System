@@ -1,13 +1,13 @@
-import Axios, { InternalAxiosRequestConfig } from 'axios';
+import Axios, { InternalAxiosRequestConfig } from "axios";
 
-import { useNotifications } from '@/components/ui/notifications';
-import { env } from '@/config/env';
-import { paths } from '@/config/paths';
+import { useNotifications } from "@/components/ui/notifications";
+import { env } from "@/config/env";
+import { paths } from "@/config/paths";
 // console.log(env);
 
 function authRequestInterceptor(config: InternalAxiosRequestConfig) {
   if (config.headers) {
-    config.headers.Accept = 'application/json';
+    config.headers.Accept = "application/json";
   }
 
   config.withCredentials = true;
@@ -26,15 +26,15 @@ api.interceptors.response.use(
   (error) => {
     const message = error.response?.data?.message || error.message;
     useNotifications.getState().addNotification({
-      type: 'error',
-      title: 'Error',
+      type: "error",
+      title: "Error",
       message,
     });
 
     if (error.response?.status === 401) {
       const searchParams = new URLSearchParams();
       const redirectTo =
-        searchParams.get('redirectTo') || window.location.pathname;
+        searchParams.get("redirectTo") || window.location.pathname;
       window.location.href = paths.auth.login.getHref(redirectTo);
     }
 
