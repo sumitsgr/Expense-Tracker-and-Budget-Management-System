@@ -1,10 +1,10 @@
-import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
 
-import logo from '@/assets/logo.svg';
-import { Head } from '@/components/seo';
-import { Button } from '@/components/ui/button';
-import { paths } from '@/config/paths';
-import { useUser } from '@/lib/auth';
+import logo from "@/assets/logo.svg";
+import { Head } from "@/components/seo";
+import { Button } from "@/components/ui/button";
+import { paths } from "@/config/paths";
+import { useUser } from "@/lib/auth";
 
 const LandingRoute = () => {
   const navigate = useNavigate();
@@ -57,7 +57,7 @@ System"
             </div>
             <div className="ml-3 inline-flex">
               <a
-                href="https://github.com/alan2207/bulletproof-react"
+                href="https://github.com/sumitsgr/Expense-Tracker-and-Budget-Management-System.git"
                 target="_blank"
                 rel="noreferrer"
               >
