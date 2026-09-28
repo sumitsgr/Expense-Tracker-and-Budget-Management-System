@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { createRoot } from 'react-dom/client';
+import * as React from "react";
+import { createRoot } from "react-dom/client";
 
-import './index.css';
-import { App } from './app';
-import { enableMocking } from './testing/mocks';
+import "./index.css";
+import { App } from "./app";
+import { enableMocking } from "./testing/mocks";
 
-const root = document.getElementById('root');
-if (!root) throw new Error('No root element found');
+const root = document.getElementById("root");
+if (!root) throw new Error("No root element found");
 
 enableMocking().then(() => {
   createRoot(root).render(
@@ -15,3 +15,11 @@ enableMocking().then(() => {
     </React.StrictMode>,
   );
 });
+
+// (1+(2*3)+((8)/4))
+
+// ['(','(',')','(','(',')',')',')']
+
+// ()(())((()()))
+
+// ['(',')','(','(',')',')','(','(','(',')','(',')',')',')']
